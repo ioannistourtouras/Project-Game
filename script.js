@@ -1,43 +1,51 @@
 const startDisplay = document.querySelector('.game-intro')
 let bg
 const gameBoard = document.querySelector('#game-board')
-let shipImg = loadImage("assets/Ship1.png")
 
+
+
+function preload() {
+    bg = loadImage('assets/gameBoard.jpg')
+    shipImg = loadImage("assets/Ship1.png")
+}
 
 function setup() {
-    // The background image must be the same size as the parameters
-    // into the createCanvas() method. In this program, the size of
-    // the image is 720x400 pixels.
-    bg = loadImage('assets/gameBoard.jpg');
-    const canvas = createCanvas(1000, 900)
-    canvas.parent('game-board');
-    
+    const canvas = createCanvas(800, 900)
+    canvas.parent('game-board');    
     console.log(bg)
   }
 
-  function draw() {
+function draw() {
       background(bg)
+
   }
 
  class Player {
-     constructor(x, y, width, height) {
+     constructor(x, y, w, h) {
          this.x = x
          this.y = y
-         this.width = width
-         this.height = height
+         this.w = w
+         this.h = h
      }
+
  }
 
  class Spaceship extends Player {
-     constructor(img) {
+     constructor(shipImg) {
+     const w = 80
+     const h = 80
+     const x = width/2 - w/2
+     const y = height - h
      super(x, y, width, height)
      this.img = shipImg
      }
+
+     draw() {
+         image(this.img, this.x, this.y, this.w, this.h)
+     }
+
+
  } 
-
-
-
-
 
 
 

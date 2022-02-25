@@ -1,52 +1,58 @@
 const startDisplay = document.querySelector('.game-intro')
 let bg
 const gameBoard = document.querySelector('#game-board')
+let shipImg
 
 
 
+// it stores only the image. it needs some time to load the image.
+// so we need preload
 function preload() {
     bg = loadImage('assets/gameBoard.jpg')
     shipImg = loadImage("assets/Ship1.png")
 }
 
 function setup() {
-    const canvas = createCanvas(800, 900)
+    const canvas = createCanvas(500, 600)
     canvas.parent('game-board');    
     console.log(bg)
   }
 
-function draw() {
+  class Player {
+    constructor(x, y, w, h) {
+        this.x = x
+        this.y = y
+        this.w = w
+        this.h = h
+    }
+
+}
+
+  class Spaceship extends Player {
+    constructor( canvasWidth, canvasHeight) {
+    const w = 80
+    const h = 80
+    const x = canvasWidth/2 - w/2
+    const y = canvasHeight - h
+    super(x, y, w, h)
+    // this.img = img
+    }
+
+    draw() {
+        image(shipImg, this.x, this.y, this.w, this.h)
+    }
+
+
+} 
+
+  let spaceship = new Spaceship( 500, 600)
+  //
+    function draw() {
       background(bg)
+      spaceship.draw()
 
-  }
-
- class Player {
-     constructor(x, y, w, h) {
-         this.x = x
-         this.y = y
-         this.w = w
-         this.h = h
-     }
-
- }
-
- class Spaceship extends Player {
-     constructor(shipImg) {
-     const w = 80
-     const h = 80
-     const x = width/2 - w/2
-     const y = height - h
-     super(x, y, width, height)
-     this.img = shipImg
-     }
-
-     draw() {
-         image(this.img, this.x, this.y, this.w, this.h)
-     }
-
-
- } 
-
+    }
+ 
 
 
 

@@ -13,15 +13,16 @@ function preload() {
 }
 
 function setup() {
-    const canvas = createCanvas(windowWidth, windowHeight)
-    canvas.style('display', 'block')
-    canvas.parent('game-board');    
+    const canvas = createCanvas(500, 600)
+   // canvas.style('display', 'block')
+    canvas.parent('game-board');  
+    noLoop() 
     console.log(bg)
   }
 
-function windowResized() {
+/*function windowResized() {
   resizeCanvas(windowWidth, windowHeight)
-}
+}*/
   class Player {
     constructor(x, y, w, h) {
         this.x = x
@@ -39,23 +40,33 @@ function windowResized() {
     const x = canvasWidth/2 - w/2
     const y = canvasHeight - h
     super(x, y, w, h)
-    // this.img = img
+    //this.img = img
     }
 
     draw() {
         image(shipImg, this.x, this.y, this.w, this.h)
     }
 
+    move() {
+      if (keyCode === UP_ARROW) {
+        this.y -= 10
+      } else if (keyCode === DOWN_ARROW) {
+        this.y += 10
+      }
+    }
+
 
 } 
 
-  let spaceship = new Spaceship( 500, 600)
+  let spaceship = new Spaceship(500, 600)
   //
-    function draw() {
+  function draw() {
       background(bg)
       spaceship.draw()
+      //translate(windowWidth, windowHeight)
+      spaceship.keyPressed()
 
-    }
+  }
  
 
 
@@ -69,6 +80,6 @@ function windowResized() {
     
     function startGame() {    
       startDisplay.style.display = 'none'
-      gameBoard.style.display = 'block'
+      gameBoard.style.display = 'flex'
     }
   };

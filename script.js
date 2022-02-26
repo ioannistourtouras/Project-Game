@@ -13,11 +13,15 @@ function preload() {
 }
 
 function setup() {
-    const canvas = createCanvas(500, 600)
+    const canvas = createCanvas(windowWidth, windowHeight)
+    canvas.style('display', 'block')
     canvas.parent('game-board');    
     console.log(bg)
   }
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight)
+}
   class Player {
     constructor(x, y, w, h) {
         this.x = x
@@ -29,7 +33,7 @@ function setup() {
 }
 
   class Spaceship extends Player {
-    constructor( canvasWidth, canvasHeight) {
+    constructor(canvasWidth, canvasHeight) {
     const w = 80
     const h = 80
     const x = canvasWidth/2 - w/2

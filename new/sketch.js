@@ -6,11 +6,12 @@ let canvasWidth
 let canvasHeight
 let spaceship
 let obstacles
-let missileImg = loadImage("../assets/missile1.png")
+let missileImg
 
 function preload() {
     bg = loadImage('../assets/gameBoard.jpg')
     shipImg = loadImage("../assets/Ship1.png")
+    missileImg = loadImage("../assets/missile1.png")
 }
 
 function setup() {

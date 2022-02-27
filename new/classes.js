@@ -44,10 +44,28 @@ class Obstacles  extends Player {
   }
 
   draw() {
-    image(missileImg, this.x, this.y, this.w, this.h)
+    image(missileImg, this.x, this.y - h, this.w, this.h)
   }
 
   addObstacle() {
     this.array.push(new Obstacles())
+  }
+
+  update() {
+    const every120Frames = frameCount % (60 * 2) === 0
+    if(every120Frames) {
+      this.addObstacle()
+    }
+
+    this.array.forEach((obstacle, index) => {
+      this.y += 10
+      if(obstacle.y + obstacle.h >= height) {
+        this.score += 100
+        this.array.splice(index, 1, this.addObstacle())
+      }
+      obstacle.draw()
+    })
+    textSize(30)
+    text(`Score: ${this.score}`, canvasWidth / 2, canvasHeight / 2)
   }
 }

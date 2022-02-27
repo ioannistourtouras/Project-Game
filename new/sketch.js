@@ -7,6 +7,7 @@ let canvasHeight
 let spaceship
 let obstacles
 let missileImg
+const gameOver = document.getElementById('game-over')
 
 function preload() {
     bg = loadImage('../assets/gameBoard.jpg')
@@ -48,7 +49,16 @@ function draw() {
     }
 }
 
+function toggleGameOver() {
+  noLoop()
+  gameBoard.style.display = 'none'
+  startDisplay.style.display = 'flex'
+  gameOver.style.display = 'flex'
+  gameOver.innerText = `Your final score is ${obstacle.score}`
 
+  spaceship = new Spaceship(canvasWidth, canvasHeight)
+  obstacles = new Obstacles()
+}
 
 function collision(rect1, rect2) {
   return (
@@ -68,6 +78,8 @@ window.onload = () => {
     
     function startGame() {    
       startDisplay.style.display = 'none'
+      gameOver.style.display = 'none'
       gameBoard.style.display = 'block'
+      loop()
     }
   };

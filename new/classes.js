@@ -24,9 +24,9 @@ class Spaceship extends Player {
 
     move() {      
       if (keyIsDown(LEFT_ARROW)) {
-        this.y -= 10
+        this.x -= 10
       } else if (keyIsDown(RIGHT_ARROW)) {
-        this.y += 10
+        this.x += 10
       }
     }
     
@@ -49,7 +49,7 @@ class Obstacles  extends Player {
 
   draw() {
 
-    image(missileImg, this.x, this.y - h, this.w, this.h)
+    image(missileImg, this.x, this.y - this.h, this.w, this.h)
   }
 
   addObstacle() {

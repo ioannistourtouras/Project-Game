@@ -23,9 +23,9 @@ class Spaceship extends Player {
     }
 
     move() {      
-      if (keyIsDown(LEFT_ARROW)) {
+      if (keyIsDown(LEFT_ARROW) && this.x >= 10) {
         this.x -= 10
-      } else if (keyIsDown(RIGHT_ARROW)) {
+      } else if (keyIsDown(RIGHT_ARROW) && this.x <= width - (this.w + 10)) {
         this.x += 10
       }
     }

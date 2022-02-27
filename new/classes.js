@@ -28,7 +28,11 @@ class Spaceship extends Player {
       } else if (keyIsDown(RIGHT_ARROW)) {
         this.y += 10
       }
-    }  
+    }
+    
+    collidesWithObstacles() {
+      return !!obstacles.array.find(obstacle => collision(spaceship, obstacle))
+    }
 } 
 
 class Obstacles  extends Player {
@@ -44,6 +48,7 @@ class Obstacles  extends Player {
   }
 
   draw() {
+
     image(missileImg, this.x, this.y - h, this.w, this.h)
   }
 

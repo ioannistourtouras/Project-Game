@@ -22,11 +22,32 @@ class Spaceship extends Player {
         image(shipImg, this.x, this.y, this.w, this.h)
     }
 
-    move() {
-      if (keyCode === UP_ARROW) {
+    move() {      
+      if (keyIsDown(LEFT_ARROW)) {
         this.y -= 10
-      } else if (keyCode === DOWN_ARROW) {
+      } else if (keyIsDown(RIGHT_ARROW)) {
         this.y += 10
       }
-    }
+    }  
 } 
+
+class Obstacles  extends Player {
+  constructor() {
+    const w = 30
+    const h = 120
+    const x = random(0, 501)
+    const y = 0 
+    super(x, y ,w, h)
+    this.score = 0
+    this.array = []
+    
+  }
+
+  draw() {
+    image(missileImg, this.x, this.y, this.w, this.h)
+  }
+
+  addObstacle() {
+    this.array.push(new Obstacles())
+  }
+}

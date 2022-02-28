@@ -83,3 +83,15 @@ class Obstacles extends Player {
     text(`Score: ${this.score}`, canvasWidth / 2, canvasHeight / 2)
   }
 }
+
+/*class Laser extends Player {
+  constructor() {
+    super(x, y, w, h)
+    this.speed = 10
+    this.array = []
+  }
+
+  draw() {
+
+  }
+}*/

@@ -18,13 +18,14 @@ function preload() {
 }
 
 function setup() {
-    const canvas = createCanvas(500, 600)
+    const canvas = createCanvas(800, 600)
    // canvas.style('display', 'block')
     canvas.parent('game-board');  
     noLoop() 
     console.log(bg)
-    spaceship = new Spaceship(500, 600)
+    spaceship = new Spaceship(800, 600)   
     obstacles = new Obstacles()
+    //laser = new Laser()
 }
 
 /*function keyPressed() {

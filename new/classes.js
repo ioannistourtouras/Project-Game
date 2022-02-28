@@ -64,15 +64,16 @@ class Obstacles extends Player {
     const every120Frames = frameCount % (60 * 2) === 0
     
     
-    if(every120Frames) {
-      console.log(every120Frames)
+    if(this.array.length < 3 && every120Frames) {
+      //console.log(every120Frames)
       this.addObstacle()
     }
 
     this.array.forEach((obstacle, index) => {
       obstacle.y += 4
-      if(obstacle.y + obstacle.h >= height) {
+      if(obstacle.y >= height) {
         this.score += 100
+        scoreElem.innerText = this.score
         this.array.splice(index, 1)
         this.addObstacle()
       }

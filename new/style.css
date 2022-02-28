@@ -15,3 +15,14 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+/*#game-board {
+    position: absolute;
+}
+
+#game-board > div {
+    display: flex;
+    position: relative;
+
+
+}*/

@@ -9,6 +9,7 @@ let obstacles
 let missileImg
 const gameOver = document.getElementById('game-over')
 const gameOverElem = gameOver.querySelector('.gameover-text')
+let scoreElem = document.getElementById('score-elem')
 
 function preload() {
     bg = loadImage('../assets/gameBoard.jpg')
@@ -54,8 +55,8 @@ function draw() {
 function toggleGameOver() {
   noLoop()
   gameBoard.style.display = 'none'
-  startDisplay.style.display = 'flex'
-  gameOver.style.display = 'flex'
+  startDisplay.style.display = 'none' // we set it to none and have only one bg img and
+  gameOver.style.display = 'flex' // they do not collide with each other
   gameOverElem.innerText = `Your final score is ${obstacles.score}`
 
   spaceship = new Spaceship(canvasWidth, canvasHeight)
@@ -80,13 +81,15 @@ window.onload = () => {
       startGame();
     };
     document.getElementById('restart-button').onclick = () => {
+      setup();// in order to get drawn the ship, we need the function
+      // setup, which creates an instance of the object ship, and then the draw fnc draws it.
       startGame();
     }
     
     function startGame() {    
       startDisplay.style.display = 'none'
       gameOver.style.display = 'none'
-      gameBoard.style.display = 'block'
-      loop()
+      gameBoard.style.display = 'flex'
+      loop() // calls the function draw()
     }
   };

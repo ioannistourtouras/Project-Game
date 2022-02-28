@@ -8,11 +8,12 @@ let spaceship
 let obstacles
 let missileImg
 const gameOver = document.getElementById('game-over')
+const gameOverElem = gameOver.querySelector('.gameover-text')
 
 function preload() {
     bg = loadImage('../assets/gameBoard.jpg')
     shipImg = loadImage("../assets/Ship1.png")
-    missileImg = loadImage("../assets/missile1.png")
+    missileImg = loadImage("../assets/asteroid2.png")
 }
 
 function setup() {
@@ -43,6 +44,7 @@ function draw() {
     spaceship.draw()
     //translate(windowWidth, windowHeight)
     spaceship.move()
+    
     obstacles.update()
     if(spaceship.collidesWithObstacles()) {
       return toggleGameOver()
@@ -54,14 +56,15 @@ function toggleGameOver() {
   gameBoard.style.display = 'none'
   startDisplay.style.display = 'flex'
   gameOver.style.display = 'flex'
-  gameOver.innerText = `Your final score is ${obstacle.score}`
+  gameOverElem.innerText = `Your final score is ${obstacles.score}`
 
   spaceship = new Spaceship(canvasWidth, canvasHeight)
   obstacles = new Obstacles()
 }
 
 function collision(rect1, rect2) {
-  return (
+ // console.log("inside collision", rect1, rect2)
+  return (  
     rect1.x < rect2.x + rect2.w &&
     rect1.x + rect1.w > rect2.x &&
     rect1.y < rect2.y + rect2.h &&
@@ -72,9 +75,13 @@ function collision(rect1, rect2) {
 window.onload = () => {
 
     gameBoard.style.display = 'none'
+    gameOver.style.display = 'none'
     document.getElementById('start-button').onclick = () => {
       startGame();
     };
+    document.getElementById('restart-button').onclick = () => {
+      startGame();
+    }
     
     function startGame() {    
       startDisplay.style.display = 'none'

@@ -31,11 +31,14 @@ class Spaceship extends Player {
     }
     
     collidesWithObstacles() {
-      return !!obstacles.array.find(obstacle => collision(spaceship, obstacle))
+     // console.log(obstacles, spaceship)
+      
+      return !!obstacles.array.find(obstacle => collision(obstacle, this))
+      
     }
 } 
 
-class Obstacles  extends Player {
+class Obstacles extends Player {
   constructor() {
     const w = 30
     const h = 120
@@ -43,30 +46,35 @@ class Obstacles  extends Player {
     const y = 0 
     super(x, y ,w, h)
     this.score = 0
-    this.array = []
-    
+    this.array = []    
   }
 
   draw() {
-
-    image(missileImg, this.x, this.y - this.h, this.w, this.h)
+    /*translate(width/2, height/2)
+    rotate(PI)*/    
+    image(missileImg, this.x, this.y, this.w, this.h)
   }
 
   addObstacle() {
-    this.array.push(new Obstacles())
+    this.array.push(new Obstacles(this.x, this.y, this.w, this.h))
   }
 
   update() {
+    
     const every120Frames = frameCount % (60 * 2) === 0
+    
+    
     if(every120Frames) {
+      console.log(every120Frames)
       this.addObstacle()
     }
 
     this.array.forEach((obstacle, index) => {
-      this.y += 10
+      obstacle.y += 4
       if(obstacle.y + obstacle.h >= height) {
         this.score += 100
-        this.array.splice(index, 1, this.addObstacle())
+        this.array.splice(index, 1)
+        this.addObstacle()
       }
       obstacle.draw()
     })

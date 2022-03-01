@@ -1,3 +1,6 @@
+* {
+    margin: 0;
+}
 
 .game-intro {
     display: flex;
@@ -13,11 +16,15 @@
 .game-intro > div {
     position: relative;    
 }
-
+/*cannot applay flexbox wth absolute posit!!!*/
 .game-intro > div > h1 {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 220px;
+    left: 35%;
+    /*right: 0;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;*/
     color: brown;
 }
 
@@ -45,11 +52,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    background-image: url(../assets/gameover-bg.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: auto;
+    color: black 
 }
 
 #game-over > img {
     width: 60vw;
     height: auto
+}
+
+.gameover-text {
+    font-size: 35px;
+    margin-bottom: 65px;
+    color: rgb(93, 220, 20);
+    
 }
 
 /*body {

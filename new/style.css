@@ -39,8 +39,10 @@ h1 {
 
 #start-button {
     background-color: rgb(139,0,0);
-    border: 2px solid currentColor;
+    border: 1px solid currentColor;
     padding: 6px 17px;
+    color:blanchedalmond;
+    border-radius: 20%;
 }
 
 h2 {
@@ -76,7 +78,7 @@ h2 {
     background-size: cover;
     height: 100vh;
     width: auto;
-    color: black 
+    color: black;
 }
 
 .gameover-text {
@@ -88,7 +90,8 @@ h2 {
 #restart-button {
     background-color: rgb(93, 220, 20);
     border: 2px solid currentColor;
-    padding: 6px 17px
+    padding: 6px 17px;
+    border-radius: 20%;
 }
 
 /*body {

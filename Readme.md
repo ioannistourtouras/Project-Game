@@ -7,7 +7,7 @@ Space Battle is an action game, where the player controls the spaceship and trie
 
 
 ## MVP
-MVP definition, deliverables.
+* move
 
 
 ## Backlog

@@ -38,7 +38,17 @@ h1 {
 }*/
 
 #start-button {
-    
+    background-color: rgb(139,0,0);
+    border: 2px solid currentColor;
+    padding: 6px 17px;
+}
+
+h2 {
+    color: rgb(139,0,0);    
+}
+
+.mail {
+    margin-bottom: 100px;
 }
 
 #game-board {
@@ -73,6 +83,12 @@ h1 {
     font-size: 35px;
     margin-bottom: 65px;
     color: rgb(93, 220, 20);    
+}
+
+#restart-button {
+    background-color: rgb(93, 220, 20);
+    border: 2px solid currentColor;
+    padding: 6px 17px
 }
 
 /*body {

@@ -25,7 +25,32 @@
     margin: 10px 0 20px 0;
 }
 
+#game-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
 
+#game-board > div > p {
+    position: absolute;
+    top: 0;
+
+    font-size: 28;
+    color: rgb(20, 220, 53);    
+}
+
+#game-over {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game-over > img {
+    width: 60vw;
+    height: auto
+}
 
 /*body {
     margin: 0;

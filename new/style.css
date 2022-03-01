@@ -62,7 +62,7 @@ h2 {
 #game-board > div > p {
     position: absolute;
     top: 0;
-
+    left: 46%;
     font-size: 28;
     color: rgb(20, 220, 53);    
 }

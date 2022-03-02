@@ -34,6 +34,12 @@ function setup() {
         
     }
 }*/
+/* I want the single laser to move every frame (continuously) when it is shooted
+so in the move() of singlelaser class I have only the value of y movement and I removed
+the if keycode ...But in the func keyPressed in the sketches as indicated by p5, when 
+w is pressed a new laser is put in the array, the move() is called for every laser and 
+
+*/
 function keyPressed() {
   if(keyCode === 87) {
     lasers.spawnLaser()
@@ -63,7 +69,7 @@ function toggleGameOver() {
   gameOverElem.innerText = `Your final score is ${obstacles.score}`
 
   spaceship = new Spaceship(canvasWidth, canvasHeight)
-  obstacles = new Obstacles()
+  obstacles = new AllOfObstacles()
 }
 
 function collision(rect1, rect2) {

@@ -40,12 +40,11 @@ class Spaceship extends Player {
 
 class SingleObstacle extends Player {
   constructor() {
-    const w = 30
-    const h = 120
+    const w = 80
+    const h = 80
     const x = random(0, 501)
     const y = 0 
-    super(x, y ,w, h)
-    
+    super(x, y ,w, h)    
   }
 
   draw() {
@@ -57,10 +56,10 @@ class SingleObstacle extends Player {
 }
 
 
-class AllOfObstacles extends Player {
+class AllOfObstacles {
   constructor() {
     this.score = 0
-    this.array = []    
+    this.array = []      
   }
 
   draw() {
@@ -70,7 +69,7 @@ class AllOfObstacles extends Player {
   }
 
   addObstacle() {
-    this.array.push(new SingleObstacle(this.x, this.y, this.w, this.h))
+    this.array.push(new SingleObstacle())
   }
 
   update() {
@@ -103,11 +102,11 @@ class Singlelaser {
     console.log(spaceship)
     this.w = 4
     this.h = 60
-    this.x1 = spaceship.x + spaceship.w / 2 - this.w / 2
-    this.y1 = spaceship.y + this.h
+    this.x = spaceship.x + spaceship.w / 2 - this.w / 2
+    this.y = spaceship.y - this.h
     this.speed = 10
-    console.log(this.x1);
-    console.log(this.y1);
+    //console.log(this.x1);
+    //console.log(this.y1);
 
     //this.array = [] 
   }
@@ -115,12 +114,12 @@ class Singlelaser {
   draw() {
     let colorOfLaser = color(240, 24, 5)
     fill(colorOfLaser)
-    rect(this.x1, this.y1, this.w, this.h) 
+    rect(this.x, this.y, this.w, this.h) 
  }
 
   move() {
          // console.log('keyIsDown')
-      this.y1 -= this.speed
+      this.y -= this.speed
     }
   }
 
@@ -143,7 +142,7 @@ class AllOfLasers {
 
   spawnLaser() {
   
-      this.array.push(new Singlelaser(this.x1, this.y1, this.w, this.h, this.speed))
+      this.array.push(new Singlelaser())
     
         
   }

@@ -43,9 +43,8 @@ w is pressed a new laser is put in the array, the move() is called for every las
 function keyPressed() {
   if(keyCode === 87) {
     lasers.spawnLaser()
+  }
 }
- }
-
 function draw() {
     background(bg)
     spaceship.draw()

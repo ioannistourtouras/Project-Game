@@ -1,5 +1,5 @@
 # Space Battle
-[Link Deploy](http://github.com)
+[Link Deploy](https://github.com/ioannistourtouras/Project-Game)
 
 
 ## Description
@@ -9,11 +9,12 @@ Space Battle is an action game, where the player controls the spaceship and trie
 ## MVP
 * The spaceship moves along the baseline, right and left
 * Asteroids come from the top of the screen
+* The spaceship should try to avoid the asteroid or shoot them with the laser
 * A collision between an asteroid and the spaceship destroys the spaceship
 
 
 ## Backlog
-Backlog elements.
+
 
 
 ## Data structure
@@ -47,11 +48,16 @@ Backlog elements.
 - move () {}
 - collidesWithObstacles() {}
 
-- Obstacles () {
+- SingleObstacle () {
     this.x
     this.y
     this.w
     this.h
+}
+
+- draw() {}
+
+- AllOfObstacles () {
     this.score
     this.array
 }
@@ -59,6 +65,27 @@ Backlog elements.
 - draw() {}
 - addObstacle() {}
 - update() {}
+
+- Singlelaser () {
+    this.w
+    this.h
+    this.x
+    this.y
+    this.speed
+}
+
+- draw() {}
+- move() {}
+
+- AllOfLasers () {
+    this.array
+}
+
+- draw() {}
+- move() {}
+- spawnLaser() {}
+- crashesAsteroid() {}
+
 
 
 ## States y States Transitions

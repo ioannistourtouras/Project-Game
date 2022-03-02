@@ -77,8 +77,9 @@ class AllOfObstacles {
     const every120Frames = frameCount % (60 * 2) === 0
     
     
-    if(this.array.length < 4 && every120Frames) {
+    if(this.array.length < 6 && every120Frames) {
       //console.log(every120Frames)
+      // the obstacles appear one by one on the screen?!
       this.addObstacle()
     }
 
@@ -100,11 +101,11 @@ class AllOfObstacles {
 class Singlelaser {
   constructor() {
     console.log(spaceship)
-    this.w = 4
-    this.h = 60
+    this.w = 2
+    this.h = 200
     this.x = spaceship.x + spaceship.w / 2 - this.w / 2
     this.y = spaceship.y - this.h
-    this.speed = 10
+    this.speed = 20
     //console.log(this.x1);
     //console.log(this.y1);
 
@@ -123,9 +124,6 @@ class Singlelaser {
     }
   }
 
-  
-
-
 class AllOfLasers {
   constructor() {
     this.array = [] 
@@ -140,22 +138,19 @@ class AllOfLasers {
    this.array.forEach(laser => laser.move())
  }
 
-  spawnLaser() {
-  
-      this.array.push(new Singlelaser())
-    
-        
-  }
+ spawnLaser() {  
+      this.array.push(new Singlelaser())  
+ }
 
   crashesAsteroid() {
      for(let i = 0; i < obstacles.array.length; i++) {
       // console.log('')
        for(let j = 0; j < this.array.length; j++) {
          //console.log(collision(obstacles.array[i], this.array[j]))
-         console.log(obstacles.array[i], this.array[j])
+         //console.log(obstacles.array[i], this.array[j])
          if(!!collision(obstacles.array[i], this.array[j])) {
 
-          console.log('kgj')
+          //console.log('kgj')
            obstacles.score += 100
            scoreElem.innerText = obstacles.score
            obstacles.array.splice(i, 1)

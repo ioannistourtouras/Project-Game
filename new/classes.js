@@ -38,13 +38,27 @@ class Spaceship extends Player {
     }
 } 
 
-class Obstacles extends Player {
+class SingleObstacle extends Player {
   constructor() {
     const w = 30
     const h = 120
     const x = random(0, 501)
     const y = 0 
     super(x, y ,w, h)
+    
+  }
+
+  draw() {
+    /*translate(width/2, height/2)
+    rotate(PI)*/    
+    image(missileImg, this.x, this.y, this.w, this.h)
+  }  
+  
+}
+
+
+class AllOfObstacles extends Player {
+  constructor() {
     this.score = 0
     this.array = []    
   }
@@ -52,11 +66,11 @@ class Obstacles extends Player {
   draw() {
     /*translate(width/2, height/2)
     rotate(PI)*/    
-    image(missileImg, this.x, this.y, this.w, this.h)
+    this.array.map(element => element.draw())
   }
 
   addObstacle() {
-    this.array.push(new Obstacles(this.x, this.y, this.w, this.h))
+    this.array.push(new SingleObstacle(this.x, this.y, this.w, this.h))
   }
 
   update() {
@@ -84,40 +98,72 @@ class Obstacles extends Player {
   }
 }
 
-class Laser {
+class Singlelaser {
   constructor() {
-    this.x1 = spaceship.x + spaceship.w / 2 - this.w / 2
-    this.y1 = spaceship.y + this.h
+    console.log(spaceship)
     this.w = 4
     this.h = 60
-    this.speed = 40
-    this.array = []
+    this.x1 = spaceship.x + spaceship.w / 2 - this.w / 2
+    this.y1 = spaceship.y + this.h
+    this.speed = 10
+    console.log(this.x1);
+    console.log(this.y1);
+
+    //this.array = [] 
   }
 
   draw() {
-     rect(this.x1, this.y1, this.w, this.h) 
-  }
+    let colorOfLaser = color(240, 24, 5)
+    fill(colorOfLaser)
+    rect(this.x1, this.y1, this.w, this.h) 
+ }
 
   move() {
-    if(keyIsDown(KeyW)) {
+         // console.log('keyIsDown')
       this.y1 -= this.speed
     }
   }
 
-  update() {
-    if(keyIsDown(KeyW)) {
-      this.array.push(new Laser(this.x1, this.y1, this.w, this.h, this.speed))
-    }
+  
+
+
+class AllOfLasers {
+  constructor() {
+    this.array = [] 
+  }
+
+  draw() {
+    this.array.forEach(laser => laser.draw())     
+    
+ }
+
+ move() {
+   this.array.forEach(laser => laser.move())
+ }
+
+  spawnLaser() {
+  
+      this.array.push(new Singlelaser(this.x1, this.y1, this.w, this.h, this.speed))
+    
+        
   }
 
   crashesAsteroid() {
      for(let i = 0; i < obstacles.array.length; i++) {
+      // console.log('')
        for(let j = 0; j < this.array.length; j++) {
+         //console.log(collision(obstacles.array[i], this.array[j]))
+         console.log(obstacles.array[i], this.array[j])
          if(!!collision(obstacles.array[i], this.array[j])) {
+
+          console.log('kgj')
            obstacles.score += 100
+           scoreElem.innerText = obstacles.score
            obstacles.array.splice(i, 1)
+           this.array.splice(j, 1)
          }
        }
      }
   }
+
 }

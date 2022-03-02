@@ -6,6 +6,7 @@ let canvasWidth
 let canvasHeight
 let spaceship
 let obstacles
+let lasers
 let missileImg
 const gameOver = document.getElementById('game-over')
 const gameOverElem = gameOver.querySelector('.gameover-text')
@@ -24,8 +25,8 @@ function setup() {
     noLoop() 
     console.log(bg)
     spaceship = new Spaceship(800, 600)   
-    obstacles = new Obstacles()
-    laser = new Laser()
+    obstacles = new AllOfObstacles()
+    lasers = new AllOfLasers()
 }
 
 /*function keyPressed() {
@@ -33,20 +34,21 @@ function setup() {
         
     }
 }*/
-/*function keyPressed() {
-  if (keyCode === RIGHT_ARROW) {
-           this.x += 10;
-  } else if (keyCode === LEFT_ARROW ) {
-           this.x -= 10
-  }
-}*/
+function keyPressed() {
+  if(keyCode === 87) {
+    lasers.spawnLaser()
+}
+ }
 
 function draw() {
     background(bg)
     spaceship.draw()
     //translate(windowWidth, windowHeight)
     spaceship.move()
+    lasers.draw()
+    lasers.move()
     
+    lasers.crashesAsteroid()
     obstacles.update()
     if(spaceship.collidesWithObstacles()) {
       return toggleGameOver()

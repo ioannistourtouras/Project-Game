@@ -12,6 +12,7 @@ const gameOver = document.getElementById('game-over')
 const gameOverElem = gameOver.querySelector('.gameover-text')
 let scoreElem = document.getElementById('score-elem')
 
+
 function preload() {
     bg = loadImage('../assets/gameBoard.jpg')
     shipImg = loadImage("../assets/Ship1.png")
@@ -69,6 +70,8 @@ function toggleGameOver() {
 
   spaceship = new Spaceship(canvasWidth, canvasHeight)
   obstacles = new AllOfObstacles()
+
+  checkForHighScore(obstacles.score)
 }
 
 function collision(rect1, rect2) {
@@ -91,7 +94,9 @@ window.onload = () => {
     document.getElementById('restart-button').onclick = () => {
       setup();// in order to get drawn the ship, we need the function
       // setup, which creates an instance of the object ship, and then the draw fnc draws it.
-      startGame();
+      obstacles.score = 0;
+      scoreElem.innerText = 0;
+      startGame()
     }
     
     function startGame() {    
@@ -101,3 +106,48 @@ window.onload = () => {
       loop() // calls the function draw()
     }
   };
+
+
+  let nameElem = document.getElementById('name')
+  const listElem = document.createElelement('li')
+  const orderedList = document.querySelector('.ordered-list')
+  listElem.innerText = `${nameElem.value}: Score: ${obstacles.score}`
+
+  orderedList.appendChild(listElem)
+
+
+  const NO_OF_HIGH_SCORES = 10;
+  const HIGH_SCORES = 'highScores'
+
+  const highScoreString = localStorage.getItem(HIGH_SCORES)
+  
+  function checkForHighScore(score) {
+  const highScores = JSON.parse(highScoreString) ?? [];
+  const lowestScore = highScores[NO_OF_HIGH_SCORES — 1]?.score ?? 0;
+
+  if (score > lowestScore) {
+    saveHighScore(score, highScores)
+    showHighScores()
+  }
+  }
+
+  
+  function saveHighScore(score, highScores) {
+
+    const newScore = { score, nameElem }
+    highScores.push(newScore)
+
+    highScores.sort((a, b) => b.score - a.score)
+    highScores.splice(NO_OF_HIGH_SCORES)
+    localStorage.setItem(HIGH_SCORES, JSON.stringify(highScores))
+  }
+
+  highScores.map(elem => `<li>${elem.score} - ${elem.nameElem}`)
+
+
+
+
+
+
+
+

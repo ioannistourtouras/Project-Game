@@ -77,7 +77,7 @@ class AllOfObstacles {
     const every120Frames = frameCount % (60 * 2) === 0
     
     
-    if(this.array.length < 6 && every120Frames) {
+    if(this.array.length < 12 && every120Frames) {
       //console.log(every120Frames)
       // the obstacles appear one by one on the screen?!
       this.addObstacle()

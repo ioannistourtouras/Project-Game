@@ -106,7 +106,7 @@ Definition of the different states and their transition (transition functions)
 - sketch - buildGameOverScreen
 - sketch - startLoop
 - sketch - buildCanvas
-- sketch - updateCanvas
+- sketch - keyPressed
 - sketch - drawCanvas
 - classes - ship draw
 - classes - ship move
@@ -114,6 +114,10 @@ Definition of the different states and their transition (transition functions)
 - classes - obstacle draw
 - classes - addObstacle
 - classes - update
+- classes - laser draw
+- classes - laser move
+- classes - spawnLaser
+- classes - crashesAsteroid
 - sketch - checkCollision
 - sketch - GameOver
 - sketch - addEventListener

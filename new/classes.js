@@ -64,7 +64,7 @@ class Obstacles extends Player {
     const every120Frames = frameCount % (60 * 2) === 0
     
     
-    if(this.array.length < 3 && every120Frames) {
+    if(this.array.length < 4 && every120Frames) {
       //console.log(every120Frames)
       this.addObstacle()
     }
@@ -84,14 +84,40 @@ class Obstacles extends Player {
   }
 }
 
-/*class Laser extends Player {
+class Laser {
   constructor() {
-    super(x, y, w, h)
-    this.speed = 10
+    this.x1 = spaceship.x + spaceship.w / 2 - this.w / 2
+    this.y1 = spaceship.y + this.h
+    this.w = 4
+    this.h = 60
+    this.speed = 40
     this.array = []
   }
 
   draw() {
-
+     rect(this.x1, this.y1, this.w, this.h) 
   }
-}*/
+
+  move() {
+    if(keyIsDown(KeyW)) {
+      this.y1 -= this.speed
+    }
+  }
+
+  update() {
+    if(keyIsDown(KeyW)) {
+      this.array.push(new Laser(this.x1, this.y1, this.w, this.h, this.speed))
+    }
+  }
+
+  crashesAsteroid() {
+     for(let i = 0; i < obstacles.array.length; i++) {
+       for(let j = 0; j < this.array.length; j++) {
+         if(!!collision(obstacles.array[i], this.array[j])) {
+           obstacles.score += 100
+           obstacles.array.splice(i, 1)
+         }
+       }
+     }
+  }
+}

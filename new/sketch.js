@@ -25,7 +25,7 @@ function setup() {
     console.log(bg)
     spaceship = new Spaceship(800, 600)   
     obstacles = new Obstacles()
-    //laser = new Laser()
+    laser = new Laser()
 }
 
 /*function keyPressed() {

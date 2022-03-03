@@ -74,7 +74,7 @@ class AllOfObstacles {
 
   update() {
     
-    const every120Frames = frameCount % (60 * 2) === 0
+    const every120Frames = frameCount % (60 * 1) === 0
     
     
     if(this.array.length < 12 && every120Frames) {

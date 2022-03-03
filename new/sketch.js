@@ -30,16 +30,11 @@ function setup() {
     lasers = new AllOfLasers()
 }
 
-/*function keyPressed() {
-    if (keyCode === UP_ARROW) {
-        
-    }
-}*/
+
 /* I want the single laser to move every frame (continuously) when it is shooted
 so in the move() of singlelaser class I have only the value of y movement and I removed
 the if keycode ...But in the func keyPressed in the sketches as indicated by p5, when 
 w is pressed a new laser is put in the array, the move() is called for every laser and 
-
 */
 function keyPressed() {
   if(keyCode === 87) {
@@ -71,7 +66,8 @@ function toggleGameOver() {
   spaceship = new Spaceship(canvasWidth, canvasHeight)
   obstacles = new AllOfObstacles()
 
-  checkForHighScore(obstacles.score)
+  /*checkForHighScore(obstacles.score)
+  showHighScores()*/
 }
 
 function collision(rect1, rect2) {
@@ -102,24 +98,21 @@ window.onload = () => {
     function startGame() {    
       startDisplay.style.display = 'none'
       gameOver.style.display = 'none'
-      gameBoard.style.display = 'flex'
+      gameBoard.style.display = 'flex'      
       loop() // calls the function draw()
     }
-  };
+};
 
 
-  let nameElem = document.getElementById('name')
+  /*let nameElem = document.getElementById('name')
   const listElem = document.createElelement('li')
-  const orderedList = document.querySelector('.ordered-list')
-  listElem.innerText = `${nameElem.value}: Score: ${obstacles.score}`
-
-  orderedList.appendChild(listElem)
-
+  
 
   const NO_OF_HIGH_SCORES = 10;
   const HIGH_SCORES = 'highScores'
 
   const highScoreString = localStorage.getItem(HIGH_SCORES)
+  const highScores = JSON.parse(highScoreString) ?? []
   
   function checkForHighScore(score) {
   const highScores = JSON.parse(highScoreString) ?? [];
@@ -143,6 +136,20 @@ window.onload = () => {
   }
 
   highScores.map(elem => `<li>${elem.score} - ${elem.nameElem}`)
+
+  const highScoreList = document.getElementById(HIGH_SCORES)
+
+  hightScoreList.innerText = highScores.map(elem => `<li>${elem.score} - ${elem.nameElem}`)
+
+  function showHighScores() {
+    const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
+    const highScoreList = document.getElementById(HIGH_SCORES);    
+    highScoreList.innerHTML = highScores.map((score) => `<li>${score.score} - ${score.nameElem}`).join('');
+  }*/
+
+
+
+
 
 
 

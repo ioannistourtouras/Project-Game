@@ -65,8 +65,8 @@ function toggleGameOver() {
   spaceship = new Spaceship(canvasWidth, canvasHeight)
   obstacles = new AllOfObstacles()
   console.log(obstacles.score)
-  checkForHighScore(obstacles.score)
-  showHighScores()
+  /*checkForHighScore(obstacles.score)
+  showHighScores()*/
 }
 
 function collision(rect1, rect2) {
@@ -107,7 +107,7 @@ window.onload = () => {
 }*/
 
 
- let nameElem = document.getElementById('name')
+ /*let nameElem = document.getElementById('name')
  const listElem = document.createElelement('li')
   
 
@@ -148,7 +148,7 @@ window.onload = () => {
     const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
     const highScoreList = document.getElementById(HIGH_SCORES);    
     highScoreList.innerHTML = highScores.map((score) => `<li>${score.score} - ${score.nameElem}`).join('');
-  }
+  }*/
 
 
 

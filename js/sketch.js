@@ -62,11 +62,11 @@ function toggleGameOver() {
   gameOverElem.innerText = `Your final score is ${obstacles.score}`
 
   //pouplateStorage("score", `${obstacles.score}`)
-  spaceship = new Spaceship(canvasWidth, canvasHeight)
-  obstacles = new AllOfObstacles()
-  console.log(obstacles.score)
   checkForHighScore(obstacles.score)
   showHighScores()
+  console.log(obstacles.score)
+  spaceship = new Spaceship(canvasWidth, canvasHeight)
+  obstacles = new AllOfObstacles()
 }
 
 function collision(rect1, rect2) {
@@ -102,51 +102,65 @@ window.onload = () => {
     }
 };
 
-function pouplateStorage(key, value) {
+/*function pouplateStorage(key, value) {
   localStorage.setItem('highScores', 300)
-}
+}*/
 
 
- let nameElem = document.getElementById('name')
+ 
+ 
  const listElem = document.createElement('li')
   
 
   const NO_OF_HIGH_SCORES = 10;
   const HIGH_SCORES = 'highScores'
 
-  const highScoreString = localStorage.getItem(HIGH_SCORES)
-  const highScores = JSON.parse(highScoreString) ?? []
+  
   
   function checkForHighScore(score) {
-  const highScores = JSON.parse(highScoreString) ?? [];
-  const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
+    const highScoreString = localStorage.getItem(HIGH_SCORES)
+    const highScores = JSON.parse(highScoreString) ?? [];
+  const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? -Infinity;
+  //const highScoreElem = highScores[NO_OF_HIGH_SCORES - 1]
+  console.log(lowestScore)
+  console.log(score)
+  
 
   if (score > lowestScore) {
-    saveHighScore(score, highScores)
+    saveHighScore(score)
     showHighScores()
-  }
+    }
   }
 
   
-  function saveHighScore(score, highScores) {
-
+  function saveHighScore(score) {
+    /*let nameElem = document.getElementById('name').value
+    console.log(`This is the nameelem ${nameElem}`)*/
+    const highScoreString = localStorage.getItem(HIGH_SCORES)
+    const highScores = JSON.parse(highScoreString) ?? []
+    console.log(highScores) 
+    let nameElem = prompt('Give me your name!')
+    nameElem = nameElem ? nameElem : 'anonymous'
     const newScore = { score, nameElem }
     highScores.push(newScore)
-
+    console.log(highScores)
     highScores.sort((a, b) => b.score - a.score)
+    console.log(highScores)
     highScores.splice(NO_OF_HIGH_SCORES)
+    console.log(highScores)
     localStorage.setItem(HIGH_SCORES, JSON.stringify(highScores))
   }
 
-  highScores.map(score => `<li>${score.score} - ${score.nameElem}`)
+  //highScores.map(score => `<li>${score.score} - ${score.nameElem}`)
 
-  const highScoreList = document.getElementById('highScores')
+  //const highScoreList = document.getElementById('highScores')
 
-  highScoreList.innerText = highScores.map(score => `<li>${score.score} - ${score.nameElem}`)
+  //highScoreList.innerText = highScores.map(score => `<li>${score.score} - ${score.nameElem}`)
 
   function showHighScores() {
     const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
     const highScoreList = document.getElementById(HIGH_SCORES);    
+    console.log('thjis is highscores', highScores)
     highScoreList.innerHTML = highScores.map((score) => `<li>${score.score} - ${score.nameElem}`).join('');
   }
 

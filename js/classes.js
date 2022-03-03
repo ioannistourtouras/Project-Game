@@ -42,7 +42,7 @@ class SingleObstacle extends Player {
   constructor() {
     const w = 80
     const h = 80
-    const x = random(0, 501)
+    const x = random(0, 801)
     const y = 0 
     super(x, y ,w, h)    
   }

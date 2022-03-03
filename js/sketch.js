@@ -60,8 +60,7 @@ function toggleGameOver() {
   startDisplay.style.display = 'none' // we set it to none and have only one bg img and
   gameOver.style.display = 'flex' // they do not collide with each other
   gameOverElem.innerText = `Your final score is ${obstacles.score}`
-
-  //pouplateStorage("score", `${obstacles.score}`)
+  
   checkForHighScore(obstacles.score)
   showHighScores()
   console.log(obstacles.score)
@@ -100,38 +99,23 @@ window.onload = () => {
       gameBoard.style.display = 'flex'      
       loop() // calls the function draw()
     }
-};
-
-/*function pouplateStorage(key, value) {
-  localStorage.setItem('highScores', 300)
-}*/
-
-
- 
- 
- const listElem = document.createElement('li')
+}; 
   
 
   const NO_OF_HIGH_SCORES = 10;
-  const HIGH_SCORES = 'highScores'
-
-  
+  const HIGH_SCORES = 'highScores'  
   
   function checkForHighScore(score) {
     const highScoreString = localStorage.getItem(HIGH_SCORES)
     const highScores = JSON.parse(highScoreString) ?? [];
   const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? -Infinity;
   //const highScoreElem = highScores[NO_OF_HIGH_SCORES - 1]
-  console.log(lowestScore)
-  console.log(score)
   
-
   if (score > lowestScore) {
     saveHighScore(score)
     showHighScores()
     }
   }
-
   
   function saveHighScore(score) {
     /*let nameElem = document.getElementById('name').value
@@ -150,13 +134,7 @@ window.onload = () => {
     console.log(highScores)
     localStorage.setItem(HIGH_SCORES, JSON.stringify(highScores))
   }
-
-  //highScores.map(score => `<li>${score.score} - ${score.nameElem}`)
-
-  //const highScoreList = document.getElementById('highScores')
-
-  //highScoreList.innerText = highScores.map(score => `<li>${score.score} - ${score.nameElem}`)
-
+  
   function showHighScores() {
     const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
     const highScoreList = document.getElementById(HIGH_SCORES);    

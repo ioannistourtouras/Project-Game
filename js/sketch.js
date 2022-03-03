@@ -65,8 +65,8 @@ function toggleGameOver() {
   spaceship = new Spaceship(canvasWidth, canvasHeight)
   obstacles = new AllOfObstacles()
   console.log(obstacles.score)
-  /*checkForHighScore(obstacles.score)
-  showHighScores()*/
+  checkForHighScore(obstacles.score)
+  showHighScores()
 }
 
 function collision(rect1, rect2) {
@@ -102,13 +102,13 @@ window.onload = () => {
     }
 };
 
-/*function pouplateStorage(key, value) {
-  localStorage.setItem(key, value)
-}*/
+function pouplateStorage(key, value) {
+  localStorage.setItem('highScores', 300)
+}
 
 
- /*let nameElem = document.getElementById('name')
- const listElem = document.createElelement('li')
+ let nameElem = document.getElementById('name')
+ const listElem = document.createElement('li')
   
 
   const NO_OF_HIGH_SCORES = 10;
@@ -142,13 +142,13 @@ window.onload = () => {
 
   const highScoreList = document.getElementById('highScores')
 
-  hightScoreList.innerText = highScores.map(score => `<li>${score.score} - ${score.nameElem}`)
+  highScoreList.innerText = highScores.map(score => `<li>${score.score} - ${score.nameElem}`)
 
   function showHighScores() {
     const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
     const highScoreList = document.getElementById(HIGH_SCORES);    
     highScoreList.innerHTML = highScores.map((score) => `<li>${score.score} - ${score.nameElem}`).join('');
-  }*/
+  }
 
 
 

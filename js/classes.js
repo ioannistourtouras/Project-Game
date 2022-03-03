@@ -88,6 +88,10 @@ class AllOfObstacles {
     textSize(30)
     text(`Score: ${this.score}`, canvasWidth / 2, canvasHeight / 2)
   }
+
+  cheating() {
+    this.array.splice(0)
+  }
 }
 
 class Singlelaser {
@@ -108,8 +112,8 @@ class Singlelaser {
 
   move() {         
       this.y -= this.speed
-    }
-  }
+    }  
+}
 
 class AllOfLasers {
   constructor() {

@@ -7,6 +7,7 @@ let canvasHeight
 let spaceship
 let obstacles
 let lasers
+let singlelaser
 let missileImg
 const gameOver = document.getElementById('game-over')
 const gameOverElem = gameOver.querySelector('.gameover-text')
@@ -26,6 +27,7 @@ function setup() {
     
     spaceship = new Spaceship(800, 550)   
     obstacles = new AllOfObstacles()
+    singlelaser = new Singlelaser()
     lasers = new AllOfLasers()
 }
 
@@ -37,7 +39,9 @@ w is pressed a new laser is put in the array, the move() is called for every las
 function keyPressed() {
   if(keyCode === 87) {
     lasers.spawnLaser()
-  }
+  } else if(keyCode === 90) {
+    obstacles.cheating()
+  } 
 }
 function draw() {
     background(bg)
@@ -100,6 +104,8 @@ window.onload = () => {
       loop() // calls the function draw()
     }
 }; 
+
+
   
 
   const NO_OF_HIGH_SCORES = 10;
@@ -108,12 +114,12 @@ window.onload = () => {
   function checkForHighScore(score) {
     const highScoreString = localStorage.getItem(HIGH_SCORES)
     const highScores = JSON.parse(highScoreString) ?? [];
-  const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? -Infinity;
-  //const highScoreElem = highScores[NO_OF_HIGH_SCORES - 1]
+    const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? -Infinity;
   
-  if (score > lowestScore) {
-    saveHighScore(score)
-    showHighScores()
+  
+    if (score > lowestScore) {
+      saveHighScore(score)
+      showHighScores()
     }
   }
   
@@ -122,24 +128,21 @@ window.onload = () => {
     console.log(`This is the nameelem ${nameElem}`)*/
     const highScoreString = localStorage.getItem(HIGH_SCORES)
     const highScores = JSON.parse(highScoreString) ?? []
-    console.log(highScores) 
+     
     let nameElem = prompt('Give me your name!')
     nameElem = nameElem ? nameElem : 'anonymous'
     const newScore = { score, nameElem }
-    highScores.push(newScore)
-    console.log(highScores)
-    highScores.sort((a, b) => b.score - a.score)
-    console.log(highScores)
+    highScores.push(newScore)    
+    highScores.sort((a, b) => b.score - a.score)    
     highScores.splice(NO_OF_HIGH_SCORES)
-    console.log(highScores)
+    
     localStorage.setItem(HIGH_SCORES, JSON.stringify(highScores))
   }
   
   function showHighScores() {
     const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
     const highScoreList = document.getElementById(HIGH_SCORES);    
-    console.log('thjis is highscores', highScores)
-    highScoreList.innerHTML = highScores.map((score) => `<li>${score.score} - ${score.nameElem}`).join('');
+    highScoreList.innerHTML = highScores.map((score) => `<li>${score.score} - <span>${score.nameElem}</span></li>`).join('');
   }
 
 

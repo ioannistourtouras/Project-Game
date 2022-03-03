@@ -133,7 +133,7 @@ class AllOfLasers {
      for(let i = 0; i < obstacles.array.length; i++) {      
        for(let j = 0; j < this.array.length; j++) {         
          if(!!collision(obstacles.array[i], this.array[j])) {          
-           obstacles.score += 100
+           obstacles.score += 200
            scoreElem.innerText = obstacles.score
            obstacles.array.splice(i, 1)
            this.array.splice(j, 1)

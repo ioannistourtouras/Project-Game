@@ -16,7 +16,6 @@ Space Battle is an action game, where the player controls the spaceship and trie
 ## Backlog
 
 
-
 ## Data structure
 
 # sketch.js
@@ -87,14 +86,12 @@ Space Battle is an action game, where the player controls the spaceship and trie
 - crashesAsteroid() {}
 
 
-
 ## States y States Transitions
 Definition of the different states and their transition (transition functions)
 
 - splashScreen
 - gameScreen
 - gameoverScreen
-
 
 
 ## Task
@@ -128,6 +125,10 @@ Definition of the different states and their transition (transition functions)
 ### Trello
 [Link url](https://trello.com)
 
+### Git
+URls for the project repo and deploy
+[Link Repo](https://github.com/ioannistourtouras/Project-Game)
+[Link Deploy](https://jorgeberrizbeitia.github.io/kraken-brigade/)
 
 ### Slides
 [Link Slides.com](http://slides.com)

@@ -14,9 +14,9 @@ let scoreElem = document.getElementById('score-elem')
 
 
 function preload() {
-    bg = loadImage('../assets/gameBoard.jpg')
-    shipImg = loadImage("../assets/Ship1.png")
-    missileImg = loadImage("../assets/asteroid2.png")
+    bg = loadImage('assets/gameBoard.jpg')
+    shipImg = loadImage("assets/Ship1.png")
+    missileImg = loadImage("assets/asteroid2.png")
 }
 
 function setup() {

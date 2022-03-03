@@ -14,10 +14,6 @@ h1 {
     color: rgb(93, 220, 20)
 }
 
-/*.background-img {
-    width: 600px;
-    height: auto;
-}*/
 
 .game-intro {
     background-image: url(../assets/intro-image1.jpg);
@@ -55,11 +51,16 @@ h2 {
 }
 
 #game-board {
+    background-image: url(../assets/gameover-bg.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
+    margin: 0;
 }
 
 #game-board > div > p {

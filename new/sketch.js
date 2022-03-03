@@ -20,16 +20,14 @@ function preload() {
 }
 
 function setup() {
-    const canvas = createCanvas(800, 600)
-   // canvas.style('display', 'block')
+    const canvas = createCanvas(800, 550)   
     canvas.parent('game-board');  
     noLoop() 
-    console.log(bg)
-    spaceship = new Spaceship(800, 600)   
+    
+    spaceship = new Spaceship(800, 550)   
     obstacles = new AllOfObstacles()
     lasers = new AllOfLasers()
 }
-
 
 /* I want the single laser to move every frame (continuously) when it is shooted
 so in the move() of singlelaser class I have only the value of y movement and I removed
@@ -63,11 +61,12 @@ function toggleGameOver() {
   gameOver.style.display = 'flex' // they do not collide with each other
   gameOverElem.innerText = `Your final score is ${obstacles.score}`
 
+  //pouplateStorage("score", `${obstacles.score}`)
   spaceship = new Spaceship(canvasWidth, canvasHeight)
   obstacles = new AllOfObstacles()
-
-  /*checkForHighScore(obstacles.score)
-  showHighScores()*/
+  console.log(obstacles.score)
+  checkForHighScore(obstacles.score)
+  showHighScores()
 }
 
 function collision(rect1, rect2) {
@@ -103,9 +102,13 @@ window.onload = () => {
     }
 };
 
+/*function pouplateStorage(key, value) {
+  localStorage.setItem(key, value)
+}*/
 
-  /*let nameElem = document.getElementById('name')
-  const listElem = document.createElelement('li')
+
+ let nameElem = document.getElementById('name')
+ const listElem = document.createElelement('li')
   
 
   const NO_OF_HIGH_SCORES = 10;
@@ -116,7 +119,7 @@ window.onload = () => {
   
   function checkForHighScore(score) {
   const highScores = JSON.parse(highScoreString) ?? [];
-  const lowestScore = highScores[NO_OF_HIGH_SCORES — 1]?.score ?? 0;
+  const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
 
   if (score > lowestScore) {
     saveHighScore(score, highScores)
@@ -135,17 +138,17 @@ window.onload = () => {
     localStorage.setItem(HIGH_SCORES, JSON.stringify(highScores))
   }
 
-  highScores.map(elem => `<li>${elem.score} - ${elem.nameElem}`)
+  highScores.map(score => `<li>${score.score} - ${score.nameElem}`)
 
-  const highScoreList = document.getElementById(HIGH_SCORES)
+  const highScoreList = document.getElementById('highScores')
 
-  hightScoreList.innerText = highScores.map(elem => `<li>${elem.score} - ${elem.nameElem}`)
+  hightScoreList.innerText = highScores.map(score => `<li>${score.score} - ${score.nameElem}`)
 
   function showHighScores() {
     const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
     const highScoreList = document.getElementById(HIGH_SCORES);    
     highScoreList.innerHTML = highScores.map((score) => `<li>${score.score} - ${score.nameElem}`).join('');
-  }*/
+  }
 
 
 

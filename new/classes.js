@@ -47,24 +47,18 @@ class SingleObstacle extends Player {
     super(x, y ,w, h)    
   }
 
-  draw() {
-    /*translate(width/2, height/2)
-    rotate(PI)*/    
+  draw() {    
     image(missileImg, this.x, this.y, this.w, this.h)
   }  
   
 }
-
-
 class AllOfObstacles {
   constructor() {
     this.score = 0
     this.array = []      
   }
 
-  draw() {
-    /*translate(width/2, height/2)
-    rotate(PI)*/    
+  draw() {       
     this.array.map(element => element.draw())
   }
 
@@ -74,12 +68,10 @@ class AllOfObstacles {
 
   update() {
     
-    const every120Frames = frameCount % (60 * 1) === 0
+    const every45Frames = frameCount % (45 * 1) === 0
     
     
-    if(this.array.length < 12 && every120Frames) {
-      //console.log(every120Frames)
-      // the obstacles appear one by one on the screen?!
+    if(this.array.length < 12 && every45Frames) {
       this.addObstacle()
     }
 
@@ -102,14 +94,10 @@ class Singlelaser {
   constructor() {
     console.log(spaceship)
     this.w = 2
-    this.h = 200
+    this.h = 300
     this.x = spaceship.x + spaceship.w / 2 - this.w / 2
     this.y = spaceship.y - this.h
-    this.speed = 20
-    //console.log(this.x1);
-    //console.log(this.y1);
-
-    //this.array = [] 
+    this.speed = 20    
   }
 
   draw() {
@@ -118,8 +106,7 @@ class Singlelaser {
     rect(this.x, this.y, this.w, this.h) 
  }
 
-  move() {
-         // console.log('keyIsDown')
+  move() {         
       this.y -= this.speed
     }
   }
@@ -143,14 +130,9 @@ class AllOfLasers {
  }
 
   crashesAsteroid() {
-     for(let i = 0; i < obstacles.array.length; i++) {
-      // console.log('')
-       for(let j = 0; j < this.array.length; j++) {
-         //console.log(collision(obstacles.array[i], this.array[j]))
-         //console.log(obstacles.array[i], this.array[j])
-         if(!!collision(obstacles.array[i], this.array[j])) {
-
-          //console.log('kgj')
+     for(let i = 0; i < obstacles.array.length; i++) {      
+       for(let j = 0; j < this.array.length; j++) {         
+         if(!!collision(obstacles.array[i], this.array[j])) {          
            obstacles.score += 100
            scoreElem.innerText = obstacles.score
            obstacles.array.splice(i, 1)
@@ -159,5 +141,4 @@ class AllOfLasers {
        }
      }
   }
-
 }

@@ -130,7 +130,7 @@ URls for the project repo and deploy
 [Link Repo](https://ioannistourtouras.github.io/Space-Battle/)
 
 ### Slides
-[Link Slides.com](http://slides.com)
+[Link Slides.com](https://docs.google.com/presentation/d/1vf2hEJfgOn6OUlVmdW3ZWnRMa2a7OAknfkhJ6oM9s-8/edit#slide=id.p)
 
 
 

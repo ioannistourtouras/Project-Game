@@ -1,5 +1,5 @@
 # Space Battle
-[Link Deploy](https://github.com/ioannistourtouras/Project-Game)
+[Link Deploy](https://ioannistourtouras.github.io/Space-Battle/)
 
 
 ## Description
@@ -127,7 +127,7 @@ Definition of the different states and their transition (transition functions)
 
 ### Git
 URls for the project repo and deploy
-[Link Repo](https://github.com/ioannistourtouras/Project-Game)
+[Link Repo](https://ioannistourtouras.github.io/Space-Battle/)
 
 ### Slides
 [Link Slides.com](http://slides.com)

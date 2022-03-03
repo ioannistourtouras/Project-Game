@@ -7,7 +7,6 @@ let canvasHeight
 let spaceship
 let obstacles
 let lasers
-let singlelaser
 let missileImg
 const gameOver = document.getElementById('game-over')
 const gameOverElem = gameOver.querySelector('.gameover-text')
@@ -26,8 +25,7 @@ function setup() {
     noLoop() 
     
     spaceship = new Spaceship(800, 550)   
-    obstacles = new AllOfObstacles()
-    singlelaser = new Singlelaser()
+    obstacles = new AllOfObstacles()    
     lasers = new AllOfLasers()
 }
 

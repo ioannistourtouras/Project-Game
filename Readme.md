@@ -3,7 +3,7 @@
 
 
 ## Description
-Space Battle is an action game, where the player controls the spaceship and tries to avoid asteroids to gain score. To avoid them you should use the left and right arrows, because if an asteroid meets the spaceship, the spaceship is destroyed and the space-journey ends.
+Space Battle is an action game, where the player controls the spaceship and tries to avoid asteroids to gain score. To avoid them you should use the left and right arrows, because if an asteroid meets the spaceship, the spaceship is destroyed and the space-journey ends. To win this battle the spaceship is equipped with a laser, that crashes the asteroids when used.
 
 
 ## MVP
@@ -15,6 +15,8 @@ Space Battle is an action game, where the player controls the spaceship and trie
 
 ## Backlog
 
+* A local score storage system
+
 
 ## Data structure
 
@@ -22,6 +24,7 @@ Space Battle is an action game, where the player controls the spaceship and trie
 
 - preload()
 - setup()
+- keyPressed()
 - draw()
 - startGame()
 - collision()
@@ -64,6 +67,7 @@ Space Battle is an action game, where the player controls the spaceship and trie
 - draw() {}
 - addObstacle() {}
 - update() {}
+- cheating() {}
 
 - Singlelaser () {
     this.w
@@ -111,6 +115,7 @@ Definition of the different states and their transition (transition functions)
 - classes - obstacle draw
 - classes - addObstacle
 - classes - update
+- classes - cheating
 - classes - laser draw
 - classes - laser move
 - classes - spawnLaser
@@ -119,8 +124,8 @@ Definition of the different states and their transition (transition functions)
 - sketch - GameOver
 - sketch - addEventListener
 
-## Additional Links
 
+## Additional Links
 
 ### Trello
 [Link url](https://trello.com)

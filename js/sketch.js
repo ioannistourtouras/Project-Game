@@ -44,7 +44,7 @@ function keyPressed() {
 function draw() {
     background(bg)
     spaceship.draw()
-    //translate(windowWidth, windowHeight)
+    
     spaceship.move()
     lasers.draw()
     lasers.move()
@@ -71,7 +71,7 @@ function toggleGameOver() {
 }
 
 function collision(rect1, rect2) {
- // console.log("inside collision", rect1, rect2)
+ 
   return (  
     rect1.x < rect2.x + rect2.w &&
     rect1.x + rect1.w > rect2.x &&
@@ -122,8 +122,7 @@ window.onload = () => {
   }
   
   function saveHighScore(score) {
-    /*let nameElem = document.getElementById('name').value
-    console.log(`This is the nameelem ${nameElem}`)*/
+    
     const highScoreString = localStorage.getItem(HIGH_SCORES)
     const highScores = JSON.parse(highScoreString) ?? []
      
@@ -140,7 +139,7 @@ window.onload = () => {
   function showHighScores() {
     const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
     const highScoreList = document.getElementById(HIGH_SCORES);    
-    highScoreList.innerHTML = highScores.map((score) => `<li>${score.score} - <span>${score.nameElem}</span></li>`).join('');
+    highScoreList.innerHTML = highScores.map((score) => `<li>${score.score} - ${score.nameElem}</li>`).join('');
   }
 
 

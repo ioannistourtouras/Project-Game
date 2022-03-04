@@ -5,7 +5,6 @@ class Player {
         this.w = w
         this.h = h
     }
-
 }
 
 class Spaceship extends Player {
@@ -14,8 +13,7 @@ class Spaceship extends Player {
     const h = 80
     const x = canvasWidth/2 - w/2
     const y = canvasHeight - h
-    super(x, y, w, h)
-    //this.img = img
+    super(x, y, w, h)    
     }
 
     draw() {

@@ -24,7 +24,7 @@ function setup() {
     canvas.parent('game-board');  
     noLoop() 
     
-    spaceship = new Spaceship(windowWidth, windowHeight)   
+    spaceship = new Spaceship(windowWidth, windowHeight)
     obstacles = new AllOfObstacles()    
     lasers = new AllOfLasers()
 }

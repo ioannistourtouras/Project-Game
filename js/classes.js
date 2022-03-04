@@ -38,8 +38,8 @@ class Spaceship extends Player {
 
 class SingleObstacle extends Player {
   constructor() {
-    const w = 80
-    const h = 80
+    const w = 100
+    const h = 100
     const x = random(0, windowWidth)
     const y = 0 
     super(x, y ,w, h)    

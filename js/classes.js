@@ -9,8 +9,8 @@ class Player {
 
 class Spaceship extends Player {
     constructor(canvasWidth, canvasHeight) {
-    const w = 80
-    const h = 80
+    const w = 100
+    const h = 100
     const x = canvasWidth/2 - w/2
     const y = canvasHeight - h
     super(x, y, w, h)    
@@ -40,7 +40,7 @@ class SingleObstacle extends Player {
   constructor() {
     const w = 80
     const h = 80
-    const x = random(0, 801)
+    const x = random(0, windowWidth)
     const y = 0 
     super(x, y ,w, h)    
   }
@@ -69,7 +69,7 @@ class AllOfObstacles {
     const every45Frames = frameCount % (45 * 1) === 0
     
     
-    if(this.array.length < 12 && every45Frames) {
+    if(this.array.length < 18 && every45Frames) {
       this.addObstacle()
     }
 

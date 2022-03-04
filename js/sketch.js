@@ -20,7 +20,7 @@ function preload() {
 }
 
 function setup() {
-    const canvas = createCanvas(800, 550)   
+    const canvas = createCanvas(windowWidth, windowHeight)   
     canvas.parent('game-board');  
     noLoop() 
     
@@ -54,6 +54,10 @@ function draw() {
     if(spaceship.collidesWithObstacles()) {
       return toggleGameOver()
     }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight)
 }
 
 function toggleGameOver() {

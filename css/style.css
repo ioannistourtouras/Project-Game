@@ -115,10 +115,6 @@ h2 {
     margin-top: -3vh;
 }
 
-#highScores li {
-    align-self: left;
-}
-
 body {
    height: 100vh;
    width: auto;
